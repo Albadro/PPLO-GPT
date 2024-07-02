@@ -1,3 +1,16 @@
+/* colors:
+    - monochromatic: #00160c #9bbc90
+    - light-now: #dcdcbb;
+    - main-now: #91c5c9;
+ */
+
+:root {
+    --drkx-clr: hsl(144, 73%, 10%);
+    --drk-clr: hsl(144, 60%, 23%);
+    --main-clr: hsl(144, 79%, 41%);
+    --lt-clr: hsl(144, 20%, 60%);
+    --ltx-clr: hsl(144, 30%, 80%);
+}
 * {
     margin: 0;
     padding: 0;
@@ -7,16 +20,13 @@
     outline: none;
     border-radius: 6px;
 }
-
 body,
 html {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
-    /* delete the following */
-    background-color: black;
-    color: white;
+    background-color: var(--drkx-clr);
+    font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -24,10 +34,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0.5em;
-    background-color: hsl(0, 30%, 50%);
 }
 header > h1 {
     font-size: 0.9em;
+    color: var(--main-clr);
+    margin-left: 0.4em;
 }
 .theme-switch {
     font-size: 0.6em;
@@ -77,19 +88,18 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
-    background-color: grey;
 }
 main > .message-box {
     flex-grow: 1;
-    width: 75ch;
-    background-color: hsl(240, 30%, 50%);
+    width: 100%;
+    max-width: 75ch;
 }
 main > form {
     display: flex;
     justify-content: center;
     gap: 0.35em;
-    width: 78.5ch;
-    background-color: hsl(120, 30%, 25%);
+    width: 100%;
+    max-width: 78.5ch;
 }
 form > * {
     padding: 0.5em;
@@ -97,20 +107,27 @@ form > * {
 form input {
     flex-grow: 1;
     border: none;
+    background-color: var(--drk-clr);
+    color: var(--ltx-clr);
+}
+form input::placeholder {
+    color: var(--lt-clr);
 }
 form button {
     min-width: 4em;
     cursor: pointer;
+    background-color: var(--main-clr);
+    color: var(--drkx-clr);
 }
 
 footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0.5em;
-    font-size: 0.8em;
-    background-color: hsl(60, 30%, 50%);
+    padding: 0.4em;
+    font-size: 0.625rem;
 }
 footer p {
     margin-inline: 0.88em;
+    color: var(--ltx-clr);
 }
