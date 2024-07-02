@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+body,
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    /* delete the following */
+    background-color: black;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    background-color: hsl(0, 30%, 50%);
+}
+header > h1 {
+    font-size: 0.9em;
+}
+.theme-switch {
+    font-size: 0.6em;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+.theme-switch input {
+    visibility: hidden;
+}
+.theme-switch .slider {
+    --background: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: 0.5s;
+    border-radius: 30px;
+}
+.theme-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 0.4em -0.1em 0em 0.1em #fff000;
+    background: var(--background);
+    transition: 0.5s;
+}
+.theme-switch input:checked + .slider {
+    background-color: #522ba7;
+}
+.theme-switch input:checked + .slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 1em 0em 0em 1em #fff000;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    background-color: grey;
+}
+main > .message-box {
+    flex-grow: 1;
+    width: 75ch;
+    background-color: hsl(240, 30%, 50%);
+}
+main > form {
+    display: flex;
+    justify-content: center;
+    gap: 0.35em;
+    width: 78.5ch;
+    background-color: hsl(120, 30%, 25%);
+}
+form > * {
+    padding: 0.5em;
+}
+form input {
+    flex-grow: 1;
+    border: none;
+}
+form button {
+    min-width: 4em;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.5em;
+    font-size: 0.8em;
+    background-color: hsl(60, 30%, 50%);
+}
+footer p {
+    margin-inline: 0.88em;
+}
