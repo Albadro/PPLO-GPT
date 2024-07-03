@@ -8,12 +8,11 @@
         <link rel="stylesheet" href="style/all.min.css" />
         <!-- style -->
         <link rel="stylesheet" href="style/main.css" />
-        <link rel="stylesheet" href="style/light.css" />
     </head>
     <body>
         <header>
             <h1>PPLO-GPT</h1>
-            <label class="theme-switch">
+            <label class="theme-switch" title="toggle theme">
                 <input type="checkbox" />
                 <span class="slider"></span>
             </label>
@@ -180,14 +179,15 @@
 
         <section>
             <form novalidate>
-                <input
+                <textarea
                     id="user_input"
                     name="user_input"
                     type="text"
                     required
                     autofocus
                     placeholder="Ask me anything..."
-                />
+                    title=""
+                ></textarea>
                 <button type="submit" title="submit">
                     <i class="fas fa-paper-plane"></i>
                 </button>

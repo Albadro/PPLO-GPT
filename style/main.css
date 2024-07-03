@@ -1,22 +1,3 @@
-/* old-colors:
-    --bg-i-clr: hsl(144, 73%, 10%);
-    --nptBg-clr: hsl(144, 60%, 23%);
-    --mn-clr: hsl(144, 79%, 41%);
-    --lt-clr: hsl(144, 20%, 60%);
-    --nptPh-ftr-clr: hsl(144, 30%, 80%);
-
-    --bg-i-clr: hsl(183, 90%, 5%);
-    --thmBtnBg-clr: hsl(183, 80%, 12%);
-    --nptFcsBg-clr: hsl(40, 60%, 25%);
-    --btMsgBg-clr: hsla(183, 60%, 12%, 0.65);
-    --usrMsgBg-clr: hsla(40, 80%, 15%, 0.65);
-    --nptBg-clr: hsl(40, 35%, 30%);
-    --mn-clr: hsl(40, 85%, 50%);
-    --thmCrsnt-clr: hsl(168, 26%, 69%);
-    --nptPh-ftr-clr: hsl(40, 70%, 70%);
-    --npt-msg-clr: hsl(40, 25%, 85%);
- */
-
 :root {
     --bg-i-clr: hsl(183, 90%, 5%);
     --thmBtnBg-clr: hsl(183, 80%, 12%);
@@ -36,7 +17,7 @@
     text-decoration: none;
     border: none;
     outline: none;
-    border-radius: 6px;
+    /* border-radius: 6px; */
 }
 body,
 html {
@@ -94,11 +75,11 @@ header > h1 {
     transition: 0.5s;
 }
 .theme-switch input:checked + .slider {
-    background-color: #522ba7;
+    background-color: var(--thmBtnBg-clr);
 }
 .theme-switch input:checked + .slider:before {
     transform: translateX(100%);
-    box-shadow: inset 1em 0em 0em 1em var(--mn-clr);
+    box-shadow: inset 1em 0em 0em 1em var(--thmCrsnt-clr);
 }
 
 main {
@@ -116,14 +97,18 @@ main::after {
     right: 0;
     width: 10px;
     height: 100px;
-    z-index: 2;
+    z-index: 1;
     background-image: linear-gradient(
         0deg,
-        transparent 55%,
-        var(--bg-i-clr) 55%,
+        var(--bg-i-clr) 0%,
         var(--bg-i-clr) 65%,
         transparent 100%
     );
+}
+@media (max-width: calc(78.5ch + 6em)) {
+    main::after {
+        display: none;
+    }
 }
 main > .wrapper {
     max-width: 75ch;
@@ -165,16 +150,21 @@ form {
 form > * {
     padding: 0.5em;
 }
-form input {
+form textarea {
     flex-grow: 1;
     border: none;
     background-color: var(--nptBg-clr);
     color: var(--npt-msg-clr);
+    font-family: inherit;
+    border-radius: 20px;
+    padding: 1em;
+    resize: none;
+    scrollbar-width: none;
 }
-form input::placeholder {
+form textarea::placeholder {
     color: var(--nptPh-ftr-clr);
 }
-form input:focus {
+form textarea:focus {
     background-color: var(--nptFcsBg-clr);
 }
 form button {
@@ -182,6 +172,7 @@ form button {
     cursor: pointer;
     background-color: var(--mn-clr);
     color: var(--bg-i-clr);
+    border-radius: 20px;
 }
 
 footer {
@@ -193,5 +184,6 @@ footer {
 }
 footer p {
     margin-inline: 0.88em;
+    padding: 0.1em 0 0.1em 0;
     color: var(--nptPh-ftr-clr);
 }
