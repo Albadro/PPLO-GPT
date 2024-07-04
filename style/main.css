@@ -17,7 +17,10 @@
     text-decoration: none;
     border: none;
     outline: none;
-    /* border-radius: 6px; */
+}
+::selection {
+    background-color: var(--thmCrsnt-clr);
+    color: var(--bg-i-clr);
 }
 body,
 html {
