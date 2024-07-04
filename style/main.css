@@ -22,6 +22,17 @@
     background-color: var(--thmCrsnt-clr);
     color: var(--bg-i-clr);
 }
+p,
+h1,
+h2 {
+    color: var(--mn-clr);
+}
+span.p {
+    font-family: "Playwrite FR Trad", cursive;
+    font-size: 0.5em;
+    letter-spacing: 0.1em;
+    font-weight: initial !important;
+}
 body,
 html {
     height: 100%;
@@ -41,6 +52,7 @@ header {
     padding-bottom: 0;
 }
 header > h1 {
+    font-weight: 1;
     font-size: 0.9em;
     color: var(--mn-clr);
     margin-left: 0.4em;
@@ -92,6 +104,8 @@ main {
     scrollbar-color: var(--mn-clr) transparent;
     padding-inline: 0.6em;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 main::after {
     content: "";
@@ -113,6 +127,29 @@ main::after {
         display: none;
     }
 }
+main > h2.empty {
+    align-self: center;
+    font-size: 10em;
+    line-height: 0.9;
+    user-select: none;
+    overflow: hidden;
+    opacity: 0.66;
+    div {
+        font-weight: 1;
+        width: min-content;
+        margin-left: 1ch;
+    }
+    @media (min-width: 1300px) {
+        font-size: 12em;
+    }
+    @media (min-width: 351px) and (max-width: 500px) {
+        font-size: 7.5em;
+    }
+    @media (max-width: 400px) {
+        font-size: 6em;
+    }
+}
+
 main > .wrapper {
     max-width: 75ch;
     margin-inline: auto;
@@ -189,4 +226,9 @@ footer p {
     margin-inline: 0.88em;
     padding: 0.1em 0 0.1em 0;
     color: var(--nptPh-ftr-clr);
+}
+
+/* delete the following stying */
+main > .wrapper * {
+    /* display: none; */
 }
