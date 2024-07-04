@@ -17,6 +17,7 @@
     text-decoration: none;
     border: none;
     outline: none;
+    color: inherit;
 }
 ::selection {
     background-color: var(--thmCrsnt-clr);
@@ -53,7 +54,7 @@ header {
 }
 header > h1 {
     font-weight: 1;
-    font-size: 0.9em;
+    font-size: 1em;
     color: var(--mn-clr);
     margin-left: 0.4em;
 }
@@ -151,6 +152,7 @@ main > h2.empty {
 }
 
 main > .wrapper {
+    display: none;
     max-width: 75ch;
     margin-inline: auto;
 }
@@ -227,8 +229,11 @@ footer p {
     padding: 0.1em 0 0.1em 0;
     color: var(--nptPh-ftr-clr);
 }
-
-/* delete the following stying */
-main > .wrapper * {
-    /* display: none; */
+.name {
+    transition: text-shadow 250ms;
+    color: var(--mn-clr);
+    &:hover {
+        text-shadow: 0 0 5px var(--mn-clr), 0 0 10px var(--mn-clr),
+            0 0 15px var(--mn-clr);
+    }
 }
