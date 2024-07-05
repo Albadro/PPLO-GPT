@@ -1,10 +1,10 @@
 :root {
     --bg-i-clr: hsl(183, 90%, 5%);
     --thmBtnBg-clr: hsl(183, 80%, 12%);
-    --nptFcsBg-clr: hsl(40, 60%, 25%);
+    --nptFcsBg-clr: hsl(40, 60%, 25%); /**/
     --btMsgBg-clr: hsla(183, 60%, 12%, 0.65);
     --usrMsgBg-clr: hsla(40, 80%, 15%, 0.65);
-    --nptBg-clr: hsl(40, 35%, 30%);
+    --nptBg-clr: hsl(40, 45%, 30%);
     --mn-clr: hsl(40, 85%, 50%);
     --thmCrsnt-clr: hsl(168, 26%, 69%);
     --nptPh-ftr-clr: hsl(40, 70%, 70%);
@@ -18,6 +18,7 @@
     border: none;
     outline: none;
     color: inherit;
+    -webkit-tap-highlight-color: transparent;
 }
 ::selection {
     background-color: var(--thmCrsnt-clr);
@@ -58,44 +59,63 @@ header > h1 {
     color: var(--mn-clr);
     margin-left: 0.4em;
 }
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.action-bar > div {
+    color: var(--mn-clr);
+    margin-right: 0.65em;
+    font-size: 1.1em;
+    cursor: pointer;
+    height: min-content;
+}
+.action-bar > .new {
+    position: relative;
+    display: flex;
+    align-items: center;
+    & > .plus {
+        position: absolute;
+        right: 50%;
+        bottom: 50%;
+        translate: 50% 50%;
+        color: var(--bg-i-clr);
+        font-size: 0.8em;
+    }
+}
 .theme-switch {
     font-size: 0.6em;
     position: relative;
     display: inline-block;
-    width: 3.5em;
+    width: 3em;
     height: 2em;
-}
-.theme-switch input {
-    visibility: hidden;
-}
-.theme-switch .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--thmBtnBg-clr);
-    transition: 0.5s;
-    border-radius: 30px;
-}
-.theme-switch .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.4em;
-    width: 1.4em;
-    border-radius: 50%;
-    left: 10%;
-    bottom: 15%;
-    box-shadow: inset 0.4em -0.1em 0em 0.1em var(--thmCrsnt-clr);
-    transition: 0.5s;
-}
-.theme-switch input:checked + .slider {
-    background-color: var(--thmBtnBg-clr);
-}
-.theme-switch input:checked + .slider:before {
-    transform: translateX(100%);
-    box-shadow: inset 1em 0em 0em 1em var(--thmCrsnt-clr);
+    & input {
+        visibility: hidden;
+        &:checked + .slider::before {
+            transform: translateX(100%);
+            box-shadow: inset 1em 0em 0em 1em var(--thmCrsnt-clr);
+        }
+    }
+    & .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--thmBtnBg-clr);
+        border-radius: 30px;
+        &::before {
+            position: absolute;
+            content: "";
+            height: 1.4em;
+            width: 1.4em;
+            border-radius: 50%;
+            left: 10%;
+            bottom: 15%;
+            box-shadow: inset 0.4em -0.1em 0em 0.1em var(--thmCrsnt-clr);
+        }
+    }
 }
 
 main {
@@ -205,6 +225,7 @@ form textarea {
 }
 form textarea::placeholder {
     color: var(--nptPh-ftr-clr);
+    opacity: 0.7;
 }
 form textarea:focus {
     background-color: var(--nptFcsBg-clr);
