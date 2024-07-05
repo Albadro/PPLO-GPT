@@ -19,10 +19,18 @@
     outline: none;
     color: inherit;
     -webkit-tap-highlight-color: transparent;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
 }
 ::selection {
     background-color: var(--thmCrsnt-clr);
     color: var(--bg-i-clr);
+}
+.hide {
+    box-shadow: none;
+    &::after {
+        display: none;
+    }
 }
 p,
 h1,
@@ -182,7 +190,6 @@ main > h2.empty {
 }
 
 main > .wrapper {
-    display: none;
     max-width: 75ch;
     margin-inline: auto;
 }
@@ -270,4 +277,8 @@ footer p {
     &:hover {
         text-shadow: 0 0 5px var(--mn-clr), 0 0 10px var(--mn-clr);
     }
+}
+
+.empty {
+    display: none;
 }
