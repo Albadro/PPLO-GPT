@@ -9,6 +9,13 @@
     --thmCrsnt-clr: hsl(168, 26%, 69%);
     --nptPh-ftr-clr: hsl(40, 70%, 70%);
     --npt-msg-clr: hsl(40, 25%, 85%);
+
+    --brdr-rds: 20px;
+
+    @media (max-width: 768px) {
+        /*to match the scrollbar on phones*/
+        --brdr-rds: 12px;
+    }
 }
 * {
     margin: 0;
@@ -31,6 +38,11 @@
     &::after {
         display: none;
     }
+}
+.scroll-v {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--mn-clr) transparent;
 }
 p,
 h1,
@@ -138,10 +150,8 @@ header > h1 {
 
 main {
     flex-grow: 1;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--mn-clr) transparent;
     padding-inline: 0.6em;
+    margin-bottom: 1em;
     position: relative;
     display: flex;
     justify-content: center;
@@ -208,11 +218,11 @@ main > .wrapper :first-child {
 .message.user {
     background-color: var(--usrMsgBg-clr);
     margin-left: auto;
-    border-radius: 20px 20px 0 20px;
+    border-radius: var(--brdr-rds) var(--brdr-rds) 0 var(--brdr-rds);
 }
 .message.bot {
     background-color: var(--btMsgBg-clr);
-    border-radius: 20px 20px 20px 0;
+    border-radius: var(--brdr-rds) var(--brdr-rds) var(--brdr-rds) 0;
 }
 
 section {
@@ -235,10 +245,11 @@ form textarea {
     background-color: var(--nptBg-clr);
     color: var(--npt-msg-clr);
     font-family: inherit;
-    border-radius: 20px;
+    border-radius: var(--brdr-rds);
     padding: 1em;
     resize: none;
-    scrollbar-width: none;
+    height: auto;
+    max-height: 22dvh;
 }
 form textarea::placeholder {
     color: var(--nptPh-ftr-clr);
@@ -252,7 +263,7 @@ form button {
     cursor: pointer;
     background-color: var(--mn-clr);
     color: var(--bg-i-clr);
-    border-radius: 20px;
+    border-radius: var(--brdr-rds);
     transition: opacity 150ms linear;
     &:hover {
         opacity: 0.9;

@@ -1,6 +1,8 @@
 document.getElementById("newChat").addEventListener("click", newChat);
 document.getElementById("copyBtn").addEventListener("click", copyChat);
 document.getElementById("toggleTheme").addEventListener("change", toggleTheme);
+document.getElementById("userInput").addEventListener("input", adjustHeight);
+
 function newChat() {
     document.cookie =
         "session_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -53,4 +55,8 @@ function toggleTheme(event) {
         document.querySelector(`link[href="style/light.css"]`).remove();
         burryBugs();
     }
+}
+function adjustHeight() {
+    this.style.height = "auto"; // to allow shrink
+    this.style.height = `${this.scrollHeight}px`; //extends it till the max-height in css (22dvh)
 }

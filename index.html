@@ -34,7 +34,7 @@
             </div>
         </header>
 
-        <main>
+        <main class="scroll-v">
             <h2 class="empty">
                 <div class="g">G</div>
                 <span class="p">PPLO</span>
@@ -201,13 +201,15 @@
         <section>
             <form novalidate>
                 <textarea
-                    id="user_input"
-                    name="user_input"
+                    id="userInput"
+                    class="scroll-v"
+                    name="userInput"
                     type="text"
                     required
                     autofocus
                     placeholder="Ask me anything..."
                     title=""
+                    rows="1"
                 ></textarea>
                 <button type="submit" title="submit">
                     <i class="fas fa-paper-plane"></i>
