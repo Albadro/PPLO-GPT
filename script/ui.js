@@ -8,8 +8,9 @@ const submitBtn = document.getElementById("submitBtn");
 const main = document.querySelector("main");
 const scrollBtn = document.getElementById("scrollBtn");
 
-let input = false; //if the textarea have a value to input
+let inputAvailable = false; //if the textarea have a value to input
 let emptyChat = true;
+let sendAllowed = true; // to prevent sending before response
 
 document.getElementById("newChat").addEventListener("click", newChat);
 document.getElementById("copyBtn").addEventListener("click", copyChat);
@@ -73,20 +74,20 @@ function toggleTheme(event) {
     }
 }
 function adjustHeightAndValueState() {
-    // update the input value and activate the submit btn visually
+    // updating the input value and activate the submit btn visually
     const trimmedValue = textarea.value.trim();
-    if (trimmedValue == "" && input) {
-        input = false;
+    if (trimmedValue == "" && inputAvailable) {
+        inputAvailable = false;
         if (submitBtn.classList.contains("active")) {
             submitBtn.classList.remove("active");
         }
-    } else if (trimmedValue != "" && !input) {
-        input = true;
+    } else if (trimmedValue != "" && !inputAvailable) {
+        inputAvailable = true;
         if (!submitBtn.classList.contains("active")) {
             submitBtn.classList.add("active");
         }
     }
-    //adjust height
+    //adjusting height
     textarea.style.height = "auto"; // to allow shrink
     textarea.style.height = `${this.scrollHeight}px`; //extends it till the max-height in css (22dvh)
 }
@@ -106,7 +107,7 @@ function handleEnter(event) {
     }
 }
 //user createMesage to create the bot response message also ####### // the source parameter is "bot" or "user"
-function createMessage(source, content) {
+function displayMessage(source, content) {
     // source can be "bot" or "user" only
     const newMessage = document.createElement("div");
     newMessage.innerText = content;
@@ -116,7 +117,7 @@ function createMessage(source, content) {
 }
 function displayUserMessage(event) {
     event.preventDefault();
-    if (input) {
+    if (sendAllowed && inputAvailable) {
         const placeholder = document.getElementById("placeholder");
         const content = textarea.value;
         textarea.value = "";
@@ -127,7 +128,8 @@ function displayUserMessage(event) {
             placeholder.style.opacity = "0";
             emptyChat = false;
         }
-        createMessage("user", content);
+        displayMessage("user", content);
+        sendAllowed = false;
         adjustHeightAndValueState();
         textarea.focus();
         //remove fakeResponse()
@@ -156,7 +158,7 @@ function showScrollBtn() {
     }
 }
 
-//remove fakeResponse()
+//remove fakeResponse() except its last line, !!! keep it !!!
 function fakeResponse() {
     fakeText1 =
         "صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ صَلِ عَلَىْ اَلْنَبِيِّ ";
@@ -164,8 +166,9 @@ function fakeResponse() {
         "loremLorem ipsum dolor sit amet consectetur adipisicing elit. Dolor tenetur necessitatibus architecto quibusdam officiis ullam tempore. Aut placeat sunt veritatis consectetur, mollitia molestiae ab iusto et praesentium qui ea eligendi!";
     const randomIndex = Math.floor(Math.random() * 2);
     if (randomIndex === 0) {
-        createMessage("bot", fakeText1);
+        displayMessage("bot", fakeText1);
     } else {
-        createMessage("bot", fakeText2);
+        displayMessage("bot", fakeText2);
     }
+    sendAllowed = true; // to re-Allow sending after response
 }
