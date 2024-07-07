@@ -69,15 +69,25 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0.5em;
-    box-shadow: 0px 1em 10px 10px var(--bg-i-clr);
     z-index: 1;
     padding-bottom: 0;
+    font-size: 1.1rem;
+    padding-bottom: 50px;
+    background-image: linear-gradient(
+        to bottom,
+        var(--bg-i-clr) 40%,
+        hsla(183, 90%, 5%, 0.8) 60%,
+        transparent 100%
+    );
+    position: fixed;
+    width: 100%;
 }
 header > h1 {
-    font-weight: 300;
+    font-weight: 100;
     font-size: 1em;
     color: var(--mn-clr);
     margin-left: 0.4em;
+    letter-spacing: 0.06em;
 }
 .action-bar {
     display: flex;
@@ -85,10 +95,9 @@ header > h1 {
 }
 .action-bar > div {
     color: var(--mn-clr);
-    margin-right: 0.65em;
+    margin-right: 0.75em;
     font-size: 1.1em;
     cursor: pointer;
-    height: min-content;
     &:hover > i {
         transition: opacity 150ms linear;
         opacity: 0.9;
@@ -101,10 +110,10 @@ header > h1 {
     & > .plus {
         position: absolute;
         right: 50%;
-        bottom: 50%;
+        bottom: 51%;
         translate: 50% 50%;
         color: var(--bg-i-clr);
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
 }
 .theme-switch {
@@ -137,8 +146,8 @@ header > h1 {
         &::before {
             position: absolute;
             content: "";
-            height: 1.4em;
             width: 1.4em;
+            height: 1.4em;
             border-radius: 50%;
             left: 10%;
             bottom: 15%;
@@ -157,26 +166,6 @@ main {
     justify-content: center;
     scroll-behavior: smooth;
 }
-main::after {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 10px;
-    height: 100px;
-    z-index: 1;
-    background-image: linear-gradient(
-        0deg,
-        var(--bg-i-clr) 0%,
-        var(--bg-i-clr) 65%,
-        transparent 100%
-    );
-}
-@media (max-width: calc(78.5ch + 6em)) {
-    main::after {
-        display: none;
-    }
-}
 main > h2.placeholder {
     align-self: center;
     font-size: 10em;
@@ -185,7 +174,7 @@ main > h2.placeholder {
     overflow: hidden;
     opacity: 0.66;
     position: absolute;
-    translate: 2.5%;
+    translate: 2.5% 5%;
     transition: opacity 500ms;
     div {
         font-weight: 300;
@@ -238,10 +227,10 @@ main > .wrapper {
     max-width: 75ch;
     min-width: 10ch;
     margin-inline: auto;
-    height: fit-content;
+    height: min-content;
 }
 main > .wrapper :first-child {
-    margin-top: 2em;
+    margin-top: calc(2em + 50px);
 }
 .message {
     width: fit-content;
