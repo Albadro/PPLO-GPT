@@ -155,6 +155,7 @@ main {
     position: relative;
     display: flex;
     justify-content: center;
+    scroll-behavior: smooth;
 }
 main::after {
     content: "";
@@ -201,12 +202,43 @@ main > h2.placeholder {
         font-size: 6em;
     }
 }
+.scroll-btn {
+    width: 2.2em;
+    height: 2.2em;
+    background-color: var(--thmBtnBg-clr);
+    color: var(--mn-clr);
+    position: fixed;
+    bottom: 50%;
+    right: 22px;
+    border-radius: var(--brdr-rds);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition-property: opacity, bottom, filter;
+    transition-duration: 300ms;
+    &.active {
+        pointer-events: auto;
+        bottom: 100px;
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+            filter: saturate(2);
+        }
+        @media (max-width: 477px) {
+            bottom: 115px;
+        }
+    }
+}
 
 main > .wrapper {
     width: 75ch;
     max-width: 75ch;
     min-width: 10ch;
     margin-inline: auto;
+    height: fit-content;
 }
 main > .wrapper :first-child {
     margin-top: 2em;

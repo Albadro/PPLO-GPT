@@ -1,9 +1,13 @@
 //form submet default is prevented at displayUserMessage()
 const fakeEvent = new Event("submit", { bubbles: true, cancelable: true }); //fake event for ctrl+enter submition
+const hideTheirs = document.querySelectorAll("header, main");
 const form = document.getElementById("inputForm");
 const textarea = document.getElementById("userInput");
 const chatContainer = document.getElementById("chatContainer");
 const submitBtn = document.getElementById("submitBtn");
+const main = document.querySelector("main");
+const scrollBtn = document.getElementById("scrollBtn");
+
 let input = false; //if the textarea have a value to input
 let emptyChat = true;
 
@@ -13,6 +17,8 @@ document.getElementById("toggleTheme").addEventListener("change", toggleTheme);
 textarea.addEventListener("input", adjustHeightAndValueState);
 document.addEventListener("keydown", handleEnter);
 form.addEventListener("submit", displayUserMessage);
+main.addEventListener("scroll", showScrollBtn);
+scrollBtn.addEventListener("click", scrollToBottom);
 
 function newChat() {
     document.cookie =
@@ -44,7 +50,6 @@ function toggleTheme(event) {
     const head = document.head;
     function burryBugs() {
         function hide() {
-            const hideTheirs = document.querySelectorAll("header, main");
             hideTheirs.forEach((element) => {
                 element.classList.toggle("hide");
             });
@@ -102,10 +107,12 @@ function handleEnter(event) {
 }
 //user createMesage to create the bot response message also ####### // the source parameter is "bot" or "user"
 function createMessage(source, content) {
+    // source can be "bot" or "user" only
     const newMessage = document.createElement("div");
     newMessage.innerText = content;
     newMessage.classList.add("message", `${source}`);
     chatContainer.appendChild(newMessage);
+    scrollToBottom();
 }
 function displayUserMessage(event) {
     event.preventDefault();
@@ -127,6 +134,25 @@ function displayUserMessage(event) {
         setTimeout(() => {
             fakeResponse();
         }, 1000);
+    }
+}
+function scrollToBottom() {
+    main.scrollTop = main.scrollHeight;
+}
+function showScrollBtn() {
+    const distanceToTop = main.scrollTop + main.clientHeight;
+    const scrollHeight = main.scrollHeight - 100;
+
+    if (
+        distanceToTop < scrollHeight &&
+        !scrollBtn.classList.contains("active")
+    ) {
+        scrollBtn.classList.add("active");
+    } else if (
+        distanceToTop > scrollHeight &&
+        scrollBtn.classList.contains("active")
+    ) {
+        scrollBtn.classList.remove("active");
     }
 }
 
