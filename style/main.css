@@ -43,6 +43,16 @@
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--mn-clr) transparent;
+    /* for safari */
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--mn-clr);
+    }
 }
 p,
 h1,
