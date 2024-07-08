@@ -38,14 +38,24 @@ function copyChat() {
             copied += "PPLO GPT:\n" + msg.textContent + separative;
         }
     }
-    navigator.clipboard
-        .writeText(copied)
-        .then(() => {
-            //success
-        })
-        .catch((err) => {
-            // err
-        });
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard
+            .writeText(copied)
+            .then(() => {
+                //success
+            })
+            .catch((err) => {
+                // err
+            });
+    } else {
+        //if the clipboard API is blocked
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = copied;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+    }
 }
 function toggleTheme(event) {
     const head = document.head;
@@ -133,9 +143,7 @@ function displayUserMessage(event) {
         adjustHeightAndValueState();
         textarea.focus();
         //remove fakeResponse()
-        setTimeout(() => {
-            fakeResponse();
-        }, 1000);
+        fakeResponse();
     }
 }
 function scrollToBottom() {
@@ -165,10 +173,12 @@ function fakeResponse() {
     fakeText2 =
         "loremLorem ipsum dolor sit amet consectetur adipisicing elit. Dolor tenetur necessitatibus architecto quibusdam officiis ullam tempore. Aut placeat sunt veritatis consectetur, mollitia molestiae ab iusto et praesentium qui ea eligendi!";
     const randomIndex = Math.floor(Math.random() * 2);
-    if (randomIndex === 0) {
-        displayMessage("bot", fakeText1);
-    } else {
-        displayMessage("bot", fakeText2);
-    }
-    sendAllowed = true; // to re-Allow sending after response
+    setTimeout(() => {
+        if (randomIndex === 0) {
+            displayMessage("bot", fakeText1);
+        } else {
+            displayMessage("bot", fakeText2);
+        }
+        sendAllowed = true; // to re-Allow sending after response
+    }, 500);
 }

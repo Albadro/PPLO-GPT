@@ -1,5 +1,6 @@
 :root {
     --bg-i-clr: hsl(183, 90%, 5%);
+    --hdrGrdnt-clr: hsla(183, 90%, 5%, 0.8);
     --thmBtnBg-clr: hsl(183, 80%, 12%);
     --nptFcsBg-clr: hsl(40, 60%, 25%);
     --btMsgBg-clr: hsla(183, 60%, 12%, 0.65);
@@ -86,7 +87,7 @@ header {
     background-image: linear-gradient(
         to bottom,
         var(--bg-i-clr) 40%,
-        hsla(183, 90%, 5%, 0.8) 60%,
+        var(--hdrGrdnt-clr) 60%,
         transparent 100%
     );
     position: fixed;
@@ -98,6 +99,7 @@ header > h1 {
     color: var(--mn-clr);
     margin-left: 0.4em;
     letter-spacing: 0.06em;
+    cursor: alias;
 }
 .action-bar {
     display: flex;
@@ -193,6 +195,9 @@ main > h2.placeholder {
     }
     @media (min-width: 1300px) {
         font-size: 12em;
+    }
+    @media (max-height: 660px) {
+        font-size: 10em;
     }
     @media (min-width: 351px) and (max-width: 500px) {
         font-size: 7.5em;
