@@ -1,13 +1,1 @@
-:root {
-    --bg-i-clr: hsl(183, 90%, 94%);
-    --hdrGrdnt-clr: hsla(183, 90%, 94%, 0.8);
-    --thmBtnBg-clr: hsl(183 80% 88%);
-    --nptFcsBg-clr: hsl(40 60% 75%);
-    --btMsgBg-clr: hsla(183, 77%, 85%, 0.65);
-    --usrMsgBg-clr: hsla(40, 90%, 80%, 0.65);
-    --nptBg-clr: hsl(40 50% 80% / 1);
-    --mn-clr: hsl(40, 85%, 50%);
-    --thmCrsnt-clr: var(--mn-clr);
-    --nptPh-ftr-clr: hsl(40 70% 30% / 1);
-    --npt-msg-clr: hsl(40, 25%, 15%);
-}
+:root{--bg-i-clr:hsl(183, 90%, 94%);--hdrGrdnt-clr:hsla(183, 90%, 94%, 0.8);--thmBtnBg-clr:hsl(183 80% 88%);--nptFcsBg-clr:hsl(40 60% 75%);--btMsgBg-clr:hsla(183, 77%, 85%, 0.65);--usrMsgBg-clr:hsla(40, 90%, 80%, 0.65);--nptBg-clr:hsl(40 50% 80% / 1);--mn-clr:hsl(40, 85%, 50%);--thmCrsnt-clr:var(--mn-clr);--nptPh-ftr-clr:hsl(40 70% 30% / 1);--npt-msg-clr:hsl(40, 25%, 15%)}

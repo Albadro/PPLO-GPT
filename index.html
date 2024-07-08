@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PPLO GPT Chat</title>
-        <!-- font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Trad:wght@100..400&display=swap"
-            rel="stylesheet"
-        />
-        <!-- fontawesom -->
-        <link rel="stylesheet" href="style/all.min.css" />
-        <!-- style -->
-        <link rel="stylesheet" href="style/main.css" />
-    </head>
-    <body>
-        <header>
-            <h1><span class="p">PPLO</span> G<span class="p">P</span>T</h1>
-            <div class="action-bar">
-                <div class="new" title="New Chat" id="newChat">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-plus plus"></i>
-                </div>
-                <div class="copy" id="copyBtn" title="Copy Chat">
-                    <i class="fa-solid fa-copy"></i>
-                </div>
-                <label class="theme-switch" title="Toggle Theme">
-                    <input type="checkbox" id="toggleTheme" />
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPLO GPT Chat</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Trad:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesom -->
+    <link rel="stylesheet" href="style/needed.min.css" />
+    <!-- style -->
+    <link rel="stylesheet" href="style/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1><span class="p">PPLO</span> G<span class="p">P</span>T</h1>
+      <div class="action-bar">
+        <div class="new" title="New Chat" id="newChat">
+          <i class="fas fa-comment"></i>
+          <i class="fas fa-plus plus"></i>
+        </div>
+        <div class="copy" id="copyBtn" title="Copy Chat">
+          <i class="fas fa-copy"></i>
+        </div>
+        <label class="theme-switch" title="Toggle Theme">
+          <input type="checkbox" id="toggleTheme" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
 
-        <main class="scroll-v">
-            <h2 class="placeholder" id="placeholder">
-                <div class="g">G</div>
-                <span class="p">PPLO</span>
-                <div class="t">T</div>
-            </h2>
-            <div class="scroll-btn" id="scrollBtn">
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="wrapper" id="chatContainer"></div>
-        </main>
+    <main class="scroll-v">
+      <h2 class="placeholder" id="placeholder">
+        <div class="g">G</div>
+        <span class="p">PPLO</span>
+        <div class="t">T</div>
+      </h2>
+      <div class="scroll-btn" id="scrollBtn">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="wrapper" id="chatContainer"></div>
+    </main>
 
-        <section>
-            <form novalidate id="inputForm">
-                <textarea
-                    id="userInput"
-                    name="userInput"
-                    class="scroll-v"
-                    name="userInput"
-                    type="text"
-                    required
-                    autofocus
-                    placeholder="Ask me anything..."
-                    title=""
-                    rows="1"
-                ></textarea>
-                <button title="submit" id="submitBtn">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
-        </section>
+    <section>
+      <form novalidate id="inputForm">
+        <textarea
+          id="userInput"
+          name="userInput"
+          class="scroll-v"
+          name="userInput"
+          type="text"
+          required
+          autofocus
+          placeholder="Ask me anything..."
+          title=""
+          rows="1"
+        ></textarea>
+        <button title="submit" id="submitBtn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </section>
 
-        <footer>
-            <p>V4.3</p>
-            <p>PPLO-GPT can make mistakes</p>
-            <p>Made in EG</p>
-            <p>
-                By
-                <a
-                    href="https://wa.me/201068669202?text=Hello%20pplo%20"
-                    target="_blank"
-                    title="+201068669202"
-                    class="name"
-                    >Youssef-dev</a
-                >
-            </p>
-            <p>
-                UI & Front-end by
-                <a
-                    href="mailto:albadrmohammad.dev@gmail.com"
-                    target="_blank"
-                    title="albadrmohammad.dev@gmail.com"
-                    class="name"
-                    >AlBadr</a
-                >
-            </p>
-        </footer>
+    <footer>
+      <p>V4.3</p>
+      <p>PPLO-GPT can make mistakes</p>
+      <p>Made in EG</p>
+      <p>
+        By
+        <a
+          href="https://wa.me/201068669202?text=Hello%20pplo%20"
+          target="_blank"
+          title="+201068669202"
+          class="name"
+          >Youssef-dev</a
+        >
+      </p>
+      <p>
+        UI & Front-end by
+        <a
+          href="mailto:albadrmohammad.dev@gmail.com"
+          target="_blank"
+          title="albadrmohammad.dev@gmail.com"
+          class="name"
+          >AlBadr</a
+        >
+      </p>
+    </footer>
 
-        <script src="script/ui.js"></script>
-    </body>
+    <script src="script/ui.js"></script>
+  </body>
 </html>
